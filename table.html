@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Японские автомобили - Таблица</title>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="detail.html">Подробное описание</a></li>
+            <li><a href="table.html">Таблица и графики</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <h1 align="center">Список японских спортивных автомобилей</h1>
+
+    <details>
+        <summary><strong>График</strong></summary>
+        <form action="#" method="get">
+            <p><strong>Значение по оси OX</strong></p>
+            <input type="radio" id="ox1" name="ox" value="brand">
+            <label for="ox1">Марка</label><br>
+            <input type="radio" id="ox2" name="ox" value="year">
+            <label for="ox2">Год выпуска</label><br>
+            <input type="radio" id="ox3" name="ox" value="engine">
+            <label for="ox3">Тип двигателя</label>
+
+            <p><strong>Значение по оси OY</strong></p>
+            <input type="checkbox" id="oy1" name="oy" value="max_power">
+            <label for="oy1">Максимальная мощность</label><br>
+            <input type="checkbox" id="oy2" name="oy" value="min_power">
+            <label for="oy2">Минимальная мощность</label><br>
+            <input type="checkbox" id="oy3" name="oy" value="count">
+            <label for="oy3">Средняя мощность</label>
+
+            <br><br>
+            <input type="submit" id="btn_plot" value="Построить">
+            <p>Здесь будет график</p>
+        </form>
+    </details>
+
+    <br>
+
+    <details>
+        <summary><strong>Фильтр</strong></summary>
+        <form action="#" >
+            <p>
+                <label for="name">Название:</label>
+                <input type="text" id="name" name="name">
+            </p>
+            <p>
+                <label for="brand">Марка:</label>
+                <input type="text" id="brand" name="brand">
+            </p>
+            <p>
+                <label for="engine">Тип двигателя:</label>
+                <input type="text" id="engine" name="engine">
+            </p>
+            <p>
+                <label for="city">Город:</label>
+                <input type="text" id="city" name="city">
+            </p>
+            <p>
+                <label for="year_from">Год: от</label>
+                <input type="number" id="year_from" name="year_from">
+                <label for="year_to">до</label>
+                <input type="number" id="year_to" name="year_to">
+            </p>
+            <p>
+                <label for="power_from">Мощность: от</label>
+                <input type="number" id="power_from" name="power_from">
+                <label for="power_to">до</label>
+                <input type="number" id="power_to" name="power_to">
+            </p>
+            <input type="button" id="btn_filter" value="Найти">
+        </form>
+    </details>
+
+    <br>
+
+    <details>
+        <summary><strong>Сортировка</strong></summary>
+        <form action="#" method="get">
+            <p>
+                <label for="sort1">Первый уровень:</label>
+                <select id="sort1" name="sort1">
+                    <option value="none">Нет</option>
+                    <option value="name">Название</option>
+                    <option value="brand">Марка</option>
+                    <option value="year">Год</option>
+                    <option value="power">Мощность</option>
+                </select>
+                <input type="checkbox" id="desc1" name="desc1" value="1">
+                <label for="desc1">по убыванию?</label>
+            </p>
+            <p>
+                <label for="sort2">Второй уровень:</label>
+                <select id="sort2" name="sort2">
+                    <option value="none">Нет</option>
+                    <option value="name">Название</option>
+                    <option value="brand">Марка</option>
+                    <option value="year">Год</option>
+                    <option value="power">Мощность</option>
+                </select>
+                <input type="checkbox" id="desc2" name="desc2" value="1">
+                <label for="desc2">по убыванию?</label>
+            </p>
+            <p>
+                <label for="sort3">Третий уровень:</label>
+                <select id="sort3" name="sort3">
+                    <option value="none">Нет</option>
+                    <option value="name">Название</option>
+                    <option value="brand">Марка</option>
+                    <option value="year">Год</option>
+                    <option value="power">Мощность</option>
+                </select>
+                <input type="checkbox" id="desc3" name="desc3" value="1">
+                <label for="desc3">по убыванию?</label>
+            </p>
+            <input type="submit" id="btn_sort" value="Сортировать">
+        </form>
+    </details>
+
+    <br>
+
+    <h2>Таблица данных</h2>
+    <table border="1" cellpadding="5" cellspacing="0" width="100%">
+    <thead>
+        <tr bgcolor="#cccccc">
+            <th>Название</th>
+            <th>Марка</th>
+            <th>Страна</th>
+            <th>Год выпуска</th>
+            <th>Мощность (л.с.)</th>
+            <th>Тип двигателя</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Toyota Supra</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>1993</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan Skyline GT-R R34</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1999</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mazda RX-7 FD</td>
+            <td>Mazda</td>
+            <td>Япония</td>
+            <td>1992</td>
+            <td>255</td>
+            <td>Роторный</td>
+        </tr>
+        <tr>
+            <td>Honda NSX</td>
+            <td>Honda</td>
+            <td>Япония</td>
+            <td>1990</td>
+            <td>274</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Subaru Impreza WRX STI</td>
+            <td>Subaru</td>
+            <td>Япония</td>
+            <td>2000</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mitsubishi Lancer Evolution VI</td>
+            <td>Mitsubishi</td>
+            <td>Япония</td>
+            <td>1999</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Toyota AE86</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>1983</td>
+            <td>130</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan Silvia S15</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1999</td>
+            <td>250</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Honda Civic Type R EK9</td>
+            <td>Honda</td>
+            <td>Япония</td>
+            <td>1997</td>
+            <td>185</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mazda RX-8</td>
+            <td>Mazda</td>
+            <td>Япония</td>
+            <td>2003</td>
+            <td>231</td>
+            <td>Роторный</td>
+        </tr>
+        <tr>
+            <td>Toyota MR2 SW20</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>1989</td>
+            <td>220</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan 180SX</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1989</td>
+            <td>205</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mitsubishi 3000GT</td>
+            <td>Mitsubishi</td>
+            <td>Япония</td>
+            <td>1990</td>
+            <td>320</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Subaru Legacy B4 RSK</td>
+            <td>Subaru</td>
+            <td>Япония</td>
+            <td>1998</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Honda S2000</td>
+            <td>Honda</td>
+            <td>Япония</td>
+            <td>1999</td>
+            <td>240</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Toyota Celica GT-Four</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>1994</td>
+            <td>255</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan Fairlady Z Z32</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1989</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mazda MX-5 NA</td>
+            <td>Mazda</td>
+            <td>Япония</td>
+            <td>1989</td>
+            <td>120</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mitsubishi Eclipse GSX</td>
+            <td>Mitsubishi</td>
+            <td>Япония</td>
+            <td>1995</td>
+            <td>210</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Subaru Forester STI</td>
+            <td>Subaru</td>
+            <td>Япония</td>
+            <td>2004</td>
+            <td>265</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Honda Integra Type R DC2</td>
+            <td>Honda</td>
+            <td>Япония</td>
+            <td>1995</td>
+            <td>200</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Toyota Chaser JZX100</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>1996</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan Stagea 260RS</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1997</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mazda Cosmo Sport</td>
+            <td>Mazda</td>
+            <td>Япония</td>
+            <td>1967</td>
+            <td>110</td>
+            <td>Роторный</td>
+        </tr>
+        <tr>
+            <td>Mitsubishi Galant VR-4</td>
+            <td>Mitsubishi</td>
+            <td>Япония</td>
+            <td>1987</td>
+            <td>205</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Subaru Alcyone SVX</td>
+            <td>Subaru</td>
+            <td>Япония</td>
+            <td>1991</td>
+            <td>230</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Honda Prelude Type S</td>
+            <td>Honda</td>
+            <td>Япония</td>
+            <td>1996</td>
+            <td>220</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Toyota Aristo JZS161</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>1997</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan Pulsar GTI-R</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1990</td>
+            <td>230</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mazda RX-3</td>
+            <td>Mazda</td>
+            <td>Япония</td>
+            <td>1971</td>
+            <td>105</td>
+            <td>Роторный</td>
+        </tr>
+        <tr>
+            <td>Mitsubishi Starion</td>
+            <td>Mitsubishi</td>
+            <td>Япония</td>
+            <td>1982</td>
+            <td>175</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Subaru BRZ</td>
+            <td>Subaru</td>
+            <td>Япония</td>
+            <td>2012</td>
+            <td>200</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Honda CR-X SiR</td>
+            <td>Honda</td>
+            <td>Япония</td>
+            <td>1989</td>
+            <td>160</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Toyota Soarer JZZ30</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>1991</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan Laurel C33</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1989</td>
+            <td>205</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mazda Efini RX-7</td>
+            <td>Mazda</td>
+            <td>Япония</td>
+            <td>1991</td>
+            <td>255</td>
+            <td>Роторный</td>
+        </tr>
+        <tr>
+            <td>Mitsubishi FTO GPX</td>
+            <td>Mitsubishi</td>
+            <td>Япония</td>
+            <td>1994</td>
+            <td>200</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Subaru Impreza 22B STI</td>
+            <td>Subaru</td>
+            <td>Япония</td>
+            <td>1998</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Honda Beat</td>
+            <td>Honda</td>
+            <td>Япония</td>
+            <td>1991</td>
+            <td>64</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Toyota Starlet Glanza V</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>1996</td>
+            <td>135</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan Cefiro A31</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1988</td>
+            <td>205</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mazda Savanna RX-7 FC</td>
+            <td>Mazda</td>
+            <td>Япония</td>
+            <td>1985</td>
+            <td>185</td>
+            <td>Роторный</td>
+        </tr>
+        <tr>
+            <td>Mitsubishi Mirage Cyborg</td>
+            <td>Mitsubishi</td>
+            <td>Япония</td>
+            <td>1991</td>
+            <td>160</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Subaru Legacy RS</td>
+            <td>Subaru</td>
+            <td>Япония</td>
+            <td>1989</td>
+            <td>220</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Honda Accord Euro R</td>
+            <td>Honda</td>
+            <td>Япония</td>
+            <td>2000</td>
+            <td>220</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Toyota Verossa</td>
+            <td>Toyota</td>
+            <td>Япония</td>
+            <td>2001</td>
+            <td>200</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Nissan Gloria Y34</td>
+            <td>Nissan</td>
+            <td>Япония</td>
+            <td>1999</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mazda Lantis Type R</td>
+            <td>Mazda</td>
+            <td>Япония</td>
+            <td>1993</td>
+            <td>170</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Mitsubishi Pajero Evolution</td>
+            <td>Mitsubishi</td>
+            <td>Япония</td>
+            <td>1997</td>
+            <td>280</td>
+            <td>Бензиновый</td>
+        </tr>
+        <tr>
+            <td>Subaru WRX STI Type RA</td>
+            <td>Subaru</td>
+            <td>Япония</td>
+            <td>2018</td>
+            <td>310</td>
+            <td>Бензиновый</td>
+        </tr>
+    </tbody>
+</table>
+
+    <hr>
+
+
+
+</body>
+</html>
